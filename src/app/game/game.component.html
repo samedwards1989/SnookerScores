@@ -5,4 +5,6 @@
   <h1>Difference</h1>
   <h2>{{ game.diff ? game.diff : '0' }}</h2>
   <hr>
+  <h1>Snookers Required</h1>
+  <h2>{{ game.diff > game.remainingPoints ? (game.diff / 4 | number: '1.0-0') : '0'}}</h2>
 </md-card>
