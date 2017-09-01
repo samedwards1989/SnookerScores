@@ -85,11 +85,21 @@ export class AppComponent implements OnInit {
     } else if (this.player2.playing === true) {
       this.player2.score = this.player2.score + number;
     }
-
     this.updateRemaining();
+    this.game.diff = this.calculateDiff(this.player1.score, this.player2.score);
   }
 
   updateRemaining() {
     this.game.remainingPoints = this.game.maxScore - (this.game.players[0].score + this.game.players[1].score);
+  }
+
+  calculateDiff(num1: number, num2: number): number {
+    if (num1 > num2) {
+      return num1 - num2;
+    } else if (num2 > num1) {
+      return num2 - num1;
+    } else {
+      return 0;
+    }
   }
 }

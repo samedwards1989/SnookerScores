@@ -4,4 +4,5 @@ export class Game {
   players: Player[];
   maxScore = 147;
   remainingPoints: number;
+  diff: number;
 }
