@@ -55,6 +55,7 @@ export class AppComponent implements OnInit {
     this.createPlayers();
     this.game.players = [];
     this.game.remainingPoints = null;
+    this.game.diff = null;
   }
 
   createPlayers() {
