@@ -16,7 +16,7 @@
             <input mdInput placeholder="Player 2 Name" formControlName="player2Name" [(ngModel)]="player2.name">
           </md-input-container>
         </md-card-content>
-
+        
         <md-card-footer>
           <button md-raised-button type="submit" color="primary">
               Start Game
@@ -27,16 +27,6 @@
   </ng-container>
 
   <ng-container *ngIf="gameInProgress">
-
-    <button *ngIf="gameInProgress" md-raised-button type="button" (click)="switchPlayers()" class="button">
-    Switch Player
-  </button>
-
-
-    <button *ngIf="gameInProgress" md-raised-button type="button" (click)="endGame()" class="button">
-      End Game!
-    </button>
-
     <app-player [player]="game.players[0]"></app-player>
     <app-player [player]="game.players[1]"></app-player>
     <md-card>
@@ -49,5 +39,13 @@
       <button class="pink" md-fab type="button" (click)="updateScore(6)">Pink</button>
       <button class="black" md-fab type="button" (click)="updateScore(7)">Black</button>
     </md-card>
+
+    <button *ngIf="gameInProgress" md-raised-button type="button" (click)="switchPlayers()" color="primary">
+        Switch Player
+      </button>
+
+    <button *ngIf="gameInProgress" md-raised-button type="button" (click)="endGame()" color="primary">
+          End Game!
+        </button>
   </ng-container>
 </div>

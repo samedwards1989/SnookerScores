@@ -52,13 +52,14 @@ export class AppComponent implements OnInit {
   }
 
   resetPlayers() {
-    this.player1 = new Player;
-    this.player2 = new Player;
+    this.createPlayers();
     this.game.players = [];
   }
 
   createPlayers() {
     this.game.players = [];
+    this.player1.name = '';
+    this.player2.name = '';
     this.player1.score = 0;
     this.player2.score = 0;
     this.player1.playing = true;
