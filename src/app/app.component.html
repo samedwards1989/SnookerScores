@@ -1,5 +1,5 @@
 <div style="text-align:center">
-  <h1 style="color: white;">
+  <h1 style="color: white; font-size: 72px;">
     {{title}}!!
   </h1>
 
@@ -16,7 +16,7 @@
             <input mdInput placeholder="Player 2 Name" formControlName="player2Name" [(ngModel)]="player2.name">
           </md-input-container>
         </md-card-content>
-        
+
         <md-card-footer>
           <button md-raised-button type="submit" color="primary">
               Start Game
@@ -27,19 +27,25 @@
   </ng-container>
 
   <ng-container *ngIf="gameInProgress">
-    <app-player [player]="game.players[0]"></app-player>
-    <app-game [game]="game"></app-game>
-    <app-player [player]="game.players[1]"></app-player>
-    <md-card>
-      <button class="white" md-fab type="button" (click)="updateScore(4)">White</button>
-      <button class="red" md-fab type="button" (click)="updateScore(1)">Red</button>
-      <button class="yellow" md-fab type="button" (click)="updateScore(2)">Yellow</button>
-      <button class="green" md-fab type="button" (click)="updateScore(3)">Green</button>
-      <button class="brown" md-fab type="button" (click)="updateScore(4)">Brown</button>
-      <button class="blue" md-fab type="button" (click)="updateScore(5)">Blue</button>
-      <button class="pink" md-fab type="button" (click)="updateScore(6)">Pink</button>
-      <button class="black" md-fab type="button" (click)="updateScore(7)">Black</button>
-    </md-card>
+    <div fxLayout="column">
+      <div fxLayout="row" fxLayoutAlign="space-around" class="flex">
+        <app-player class="flex" [player]="game.players[0]"></app-player>
+        <app-game class="flex" [game]="game"></app-game>
+        <app-player class="flex" [player]="game.players[1]"></app-player>
+      </div>
+      <div fxLayout="column">
+        <md-card>
+          <button class="white" md-fab type="button" (click)="updateScore(4)">White</button>
+          <button class="red" md-fab type="button" (click)="updateScore(1)">Red</button>
+          <button class="yellow" md-fab type="button" (click)="updateScore(2)">Yellow</button>
+          <button class="green" md-fab type="button" (click)="updateScore(3)">Green</button>
+          <button class="brown" md-fab type="button" (click)="updateScore(4)">Brown</button>
+          <button class="blue" md-fab type="button" (click)="updateScore(5)">Blue</button>
+          <button class="pink" md-fab type="button" (click)="updateScore(6)">Pink</button>
+          <button class="black" md-fab type="button" (click)="updateScore(7)">Black</button>
+        </md-card>
+      </div>
+    </div>
 
     <button *ngIf="gameInProgress" md-raised-button type="button" (click)="switchPlayers()" color="primary">
         Switch Player
