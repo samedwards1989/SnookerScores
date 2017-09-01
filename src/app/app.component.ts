@@ -40,15 +40,12 @@ export class AppComponent implements OnInit {
   startGame() {
     this.game.players.push(this.player1, this.player2);
     this.gameInProgress = true;
-
-    console.log(this.game);
   }
 
   endGame() {
     this.reset();
     this.formBuilt = false;
     this.gameInProgress = false;
-    // reset form
   }
 
   reset() {
