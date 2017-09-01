@@ -6,12 +6,14 @@ import { MaterialModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { PlayerComponent } from './player/player.component';
+import { GameComponent } from './game/game.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    PlayerComponent
+    PlayerComponent,
+    GameComponent
   ],
   imports: [
     BrowserModule,

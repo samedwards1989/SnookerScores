@@ -45,15 +45,16 @@ export class AppComponent implements OnInit {
   }
 
   endGame() {
-    this.resetPlayers();
+    this.reset();
     this.formBuilt = false;
     this.gameInProgress = false;
     // reset form
   }
 
-  resetPlayers() {
+  reset() {
     this.createPlayers();
     this.game.players = [];
+    this.game.remainingPoints = null;
   }
 
   createPlayers() {
@@ -84,5 +85,11 @@ export class AppComponent implements OnInit {
     } else if (this.player2.playing === true) {
       this.player2.score = this.player2.score + number;
     }
+
+    this.updateRemaining();
+  }
+
+  updateRemaining() {
+    this.game.remainingPoints = this.game.maxScore - (this.game.players[0].score + this.game.players[1].score);
   }
 }

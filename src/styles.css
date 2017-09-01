@@ -1,2 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/purple-green.css";
+
+
+md-card {
+  margin: 10px auto 10px auto;
+  width: 65%;
+  align-items: center;
+  justify-content: center
+}

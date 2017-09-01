@@ -28,6 +28,7 @@
 
   <ng-container *ngIf="gameInProgress">
     <app-player [player]="game.players[0]"></app-player>
+    <app-game [game]="game"></app-game>
     <app-player [player]="game.players[1]"></app-player>
     <md-card>
       <button class="white" md-fab type="button" (click)="updateScore(4)">White</button>
