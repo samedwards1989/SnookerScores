@@ -1,20 +1,53 @@
-<!--The whole content below can be removed with the new code.-->
 <div style="text-align:center">
-  <h1>
+  <h1 *ngIf="!gameInProgress" style="color: white;">
     Welcome to {{title}}!!
   </h1>
-  <img width="300" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxOS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHZpZXdCb3g9IjAgMCAyNTAgMjUwIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAyNTAgMjUwOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8c3R5bGUgdHlwZT0idGV4dC9jc3MiPg0KCS5zdDB7ZmlsbDojREQwMDMxO30NCgkuc3Qxe2ZpbGw6I0MzMDAyRjt9DQoJLnN0MntmaWxsOiNGRkZGRkY7fQ0KPC9zdHlsZT4NCjxnPg0KCTxwb2x5Z29uIGNsYXNzPSJzdDAiIHBvaW50cz0iMTI1LDMwIDEyNSwzMCAxMjUsMzAgMzEuOSw2My4yIDQ2LjEsMTg2LjMgMTI1LDIzMCAxMjUsMjMwIDEyNSwyMzAgMjAzLjksMTg2LjMgMjE4LjEsNjMuMiAJIi8+DQoJPHBvbHlnb24gY2xhc3M9InN0MSIgcG9pbnRzPSIxMjUsMzAgMTI1LDUyLjIgMTI1LDUyLjEgMTI1LDE1My40IDEyNSwxNTMuNCAxMjUsMjMwIDEyNSwyMzAgMjAzLjksMTg2LjMgMjE4LjEsNjMuMiAxMjUsMzAgCSIvPg0KCTxwYXRoIGNsYXNzPSJzdDIiIGQ9Ik0xMjUsNTIuMUw2Ni44LDE4Mi42aDBoMjEuN2gwbDExLjctMjkuMmg0OS40bDExLjcsMjkuMmgwaDIxLjdoMEwxMjUsNTIuMUwxMjUsNTIuMUwxMjUsNTIuMUwxMjUsNTIuMQ0KCQlMMTI1LDUyLjF6IE0xNDIsMTM1LjRIMTA4bDE3LTQwLjlMMTQyLDEzNS40eiIvPg0KPC9nPg0KPC9zdmc+DQo=" />
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" href="http://angularjs.blogspot.ca/">Angular blog</a></h2>
-  </li>
-</ul>
 
+  <ng-container *ngIf="!gameInProgress">
+    <button md-raised-button type="button" (click)="newGame()" color="primary">New Game</button>
+    <md-card *ngIf="formBuilt">
+      <form [formGroup]="form" (ngSubmit)="startGame()" novalidate>
+        <md-card-content>
+          <md-input-container color="accent">
+            <input mdInput placeholder="Player 1 Name" formControlName="player1Name" [(ngModel)]="player1.name">
+          </md-input-container>
+
+          <md-input-container color="accent">
+            <input mdInput placeholder="Player 2 Name" formControlName="player2Name" [(ngModel)]="player2.name">
+          </md-input-container>
+        </md-card-content>
+
+        <md-card-footer>
+          <button md-raised-button type="submit" color="primary">
+              Start Game
+            </button>
+        </md-card-footer>
+      </form>
+    </md-card>
+  </ng-container>
+
+  <ng-container *ngIf="gameInProgress">
+
+    <button *ngIf="gameInProgress" md-raised-button type="button" (click)="switchPlayers()" class="button">
+    Switch Player
+  </button>
+
+
+    <button *ngIf="gameInProgress" md-raised-button type="button" (click)="endGame()" class="button">
+      End Game!
+    </button>
+
+    <app-player [player]="game.players[0]"></app-player>
+    <app-player [player]="game.players[1]"></app-player>
+    <md-card>
+      <button class="white" md-fab type="button" (click)="updateScore(4)">White</button>
+      <button class="red" md-fab type="button" (click)="updateScore(1)">Red</button>
+      <button class="yellow" md-fab type="button" (click)="updateScore(2)">Yellow</button>
+      <button class="green" md-fab type="button" (click)="updateScore(3)">Green</button>
+      <button class="brown" md-fab type="button" (click)="updateScore(4)">Brown</button>
+      <button class="blue" md-fab type="button" (click)="updateScore(5)">Blue</button>
+      <button class="pink" md-fab type="button" (click)="updateScore(6)">Pink</button>
+      <button class="black" md-fab type="button" (click)="updateScore(7)">Black</button>
+    </md-card>
+  </ng-container>
+</div>

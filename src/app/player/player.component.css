@@ -1,0 +1,14 @@
+md-card {
+  margin-top: 10px;
+  width: 65%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h1 {
+  font-size: 64px;
+}
+
+h2 {
+  font-size: 60px;
+}

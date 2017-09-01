@@ -1,10 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule, FormBuilder } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { PlayerComponent } from './player/player.component';
+
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { PlayerComponent } from './player/player.component';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
