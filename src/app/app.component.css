@@ -37,10 +37,3 @@
   background-color: black;
   color: black;
 }
-
-md-card {
-  margin: 10px auto 10px auto;
-  width: 65%;
-  align-items: center;
-  justify-content: center
-}
