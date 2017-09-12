@@ -8,13 +8,15 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { AppComponent } from './app.component';
 import { PlayerComponent } from './player/player.component';
 import { GameComponent } from './game/game.component';
+import { PointsComponent } from './shared/points/points.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     PlayerComponent,
-    GameComponent
+    GameComponent,
+    PointsComponent
   ],
   imports: [
     BrowserModule,
