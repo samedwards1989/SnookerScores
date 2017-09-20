@@ -1,7 +1,6 @@
 <md-card *ngIf="!fouls">
   <md-card-title>{{title}}</md-card-title>
-  <button class="white" md-fab type="button" (click)="updateScore(4)">White</button>
-  <button class="red" md-fab type="button" (click)="updateScore(1)">Red</button>
+  <button *ngIf="game.reds > 0" class="red" md-fab type="button" (click)="updateScore(1); decrementReds();">Red</button>
   <button class="yellow" md-fab type="button" (click)="updateScore(2)">Yellow</button>
   <button class="green" md-fab type="button" (click)="updateScore(3)">Green</button>
   <button class="brown" md-fab type="button" (click)="updateScore(4)">Brown</button>
@@ -13,7 +12,7 @@
 <md-card *ngIf="fouls">
   <md-card-title>{{title}}</md-card-title>
   <button class="white" md-fab type="button" (click)="updateFoul(4)">White</button>
-  <button class="red" md-fab type="button" (click)="updateFoul(4)">Red</button>
+  <button *ngIf="game.reds > 0" class="red" md-fab type="button" (click)="updateFoul(4)">Red</button>
   <button class="yellow" md-fab type="button" (click)="updateFoul(4)">Yellow</button>
   <button class="green" md-fab type="button" (click)="updateFoul(4)">Green</button>
   <button class="brown" md-fab type="button" (click)="updateFoul(4)">Brown</button>

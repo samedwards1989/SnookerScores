@@ -65,6 +65,7 @@ export class AppComponent implements OnInit {
     this.player2.actualScore = 0;
     this.player1.playing = true;
     this.player2.playing = false;
+    this.game.reds = 15;
   }
 
   switchPlayers() {

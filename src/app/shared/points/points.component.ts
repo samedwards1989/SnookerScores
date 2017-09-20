@@ -62,4 +62,10 @@ export class PointsComponent {
     }
   }
 
+  decrementReds() {
+    if (this.game.reds >= 1) {
+      this.game.reds = this.game.reds - 1;
+      console.log(this.game.reds);
+    }
+  }
 }

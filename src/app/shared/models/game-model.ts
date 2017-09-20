@@ -5,4 +5,5 @@ export class Game {
   maxScore = 147;
   remainingPoints: number;
   diff: number;
+  reds: number;
 }
