@@ -28,7 +28,7 @@
 
   <ng-container *ngIf="gameInProgress">
     <div fxLayout="column">
-      <div fxLayout="row" fxLayoutAlign="space-around" class="flex">
+      <div fxLayout="row" fxLayoutGap="18px" fxLayoutAlign="space-around" class="flex">
         <app-player class="flex" [player]="game.players[0]"></app-player>
         <app-game class="flex" [game]="game"></app-game>
         <app-player class="flex" [player]="game.players[1]"></app-player>
