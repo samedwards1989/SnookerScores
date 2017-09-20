@@ -34,16 +34,8 @@
         <app-player class="flex" [player]="game.players[1]"></app-player>
       </div>
       <div fxLayout="column">
-        <md-card>
-          <button class="white" md-fab type="button" (click)="updateScore(4)">White</button>
-          <button class="red" md-fab type="button" (click)="updateScore(1)">Red</button>
-          <button class="yellow" md-fab type="button" (click)="updateScore(2)">Yellow</button>
-          <button class="green" md-fab type="button" (click)="updateScore(3)">Green</button>
-          <button class="brown" md-fab type="button" (click)="updateScore(4)">Brown</button>
-          <button class="blue" md-fab type="button" (click)="updateScore(5)">Blue</button>
-          <button class="pink" md-fab type="button" (click)="updateScore(6)">Pink</button>
-          <button class="black" md-fab type="button" (click)="updateScore(7)">Black</button>
-        </md-card>
+        <app-points [title]="'Points'" [fouls]="false" [game]="game" [player1]="player1" [player2]="player2"></app-points>
+        <app-points [title]="'Fouls'" [fouls]="true" [game]="game" [player1]="player1" [player2]="player2"></app-points>
       </div>
     </div>
 
