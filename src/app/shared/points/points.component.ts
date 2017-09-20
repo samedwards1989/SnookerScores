@@ -36,8 +36,6 @@ export class PointsComponent {
       this.updateRemaining();
       this.game.diff = this.calculateDiff(this.player1.score, this.player2.score);
     }
-
-    console.log(this.game)
   }
 
   updateFoul(number: number) {
@@ -65,7 +63,6 @@ export class PointsComponent {
   decrementReds() {
     if (this.game.reds >= 1) {
       this.game.reds = this.game.reds - 1;
-      console.log(this.game.reds);
     }
   }
 }
