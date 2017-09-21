@@ -24,6 +24,14 @@ export class PointsComponent {
   @Input()
   player2: Player;
 
+  reds = false;
+  yellow = false;
+  green = false;
+  brown = false;
+  blue = false;
+  pink = false;
+  black = false;
+
   updateScore(number: number) {
     if (this.player1.playing === true) {
       this.player1.score = this.player1.score + number;
@@ -64,5 +72,29 @@ export class PointsComponent {
     if (this.game.reds >= 1) {
       this.game.reds = this.game.reds - 1;
     }
+    if (this.game.reds === 0) {
+      this.reds = true;
+    }
+  }
+
+  disableColour(colour: string) {
+    // if (this.reds && colour === 'yellow') {
+    //   this.yellow = true;
+    // }
+    // if (this.reds && colour === 'green') {
+    //   this.green = true;
+    // }
+    // if (this.reds && colour === 'brown') {
+    //   this.brown = true;
+    // }
+    // if (this.reds && colour === 'blue') {
+    //   this.blue = true;
+    // }
+    // if (this.reds && colour === 'pink') {
+    //   this.pink = true;
+    // }
+    // if (this.reds && colour === 'black') {
+    //   this.black = true;
+    // }
   }
 }

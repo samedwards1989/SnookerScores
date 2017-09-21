@@ -1,18 +1,18 @@
 <md-card *ngIf="!fouls">
   <md-card-title>{{title}}</md-card-title>
-  <button [disabled]="game.reds === 0" class="red" md-fab type="button" (click)="updateScore(1); decrementReds();">Red</button>
-  <button class="yellow" md-fab type="button" (click)="updateScore(2)">Yellow</button>
-  <button class="green" md-fab type="button" (click)="updateScore(3)">Green</button>
-  <button class="brown" md-fab type="button" (click)="updateScore(4)">Brown</button>
-  <button class="blue" md-fab type="button" (click)="updateScore(5)">Blue</button>
-  <button class="pink" md-fab type="button" (click)="updateScore(6)">Pink</button>
-  <button class="black" md-fab type="button" (click)="updateScore(7)">Black</button>
+  <button [disabled]="reds" class="red" md-fab type="button" (click)="updateScore(1); decrementReds();">Red</button>
+  <button [disabled]="yellow" class="yellow" md-fab type="button" (click)="updateScore(2); disableColour('yellow');">Yellow</button>
+  <button [disabled]="green" class="green" md-fab type="button" (click)="updateScore(3); disableColour('green');">Green</button>
+  <button [disabled]="brown" class="brown" md-fab type="button" (click)="updateScore(4); disableColour('brown');">Brown</button>
+  <button [disabled]="blue" class="blue" md-fab type="button" (click)="updateScore(5); disableColour('blue');">Blue</button>
+  <button [disabled]="pink" class="pink" md-fab type="button" (click)="updateScore(6); disableColour('pink');">Pink</button>
+  <button [disabled]="black" class="black" md-fab type="button" (click)="updateScore(7); disableColour('black');">Black</button>
 </md-card>
 
 <md-card *ngIf="fouls">
   <md-card-title>{{title}}</md-card-title>
   <button class="white" md-fab type="button" (click)="updateFoul(4)">White</button>
-  <button [disabled]="game.reds === 0" class="red" md-fab type="button" (click)="updateFoul(4)">Red</button>
+  <button class="red" md-fab type="button" (click)="updateFoul(4)">Red</button>
   <button class="yellow" md-fab type="button" (click)="updateFoul(4)">Yellow</button>
   <button class="green" md-fab type="button" (click)="updateFoul(4)">Green</button>
   <button class="brown" md-fab type="button" (click)="updateFoul(4)">Brown</button>
